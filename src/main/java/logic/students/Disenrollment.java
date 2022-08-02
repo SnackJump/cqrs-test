@@ -1,0 +1,36 @@
+package logic.students;
+
+import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+/**
+ * Title: Disenrollment<br>
+ * Description:<br>
+ *
+ * @author 2920
+ * @version 修訂記錄:<br>
+ * @since 2022/7/22
+ */
+@Entity
+@Setter
+@Getter
+@NoArgsConstructor
+public class Disenrollment {
+  @Id @GeneratedValue private long id;
+  private Student student;
+  private Course course;
+  private Date dateTime;
+  private String comment;
+
+  public Disenrollment(Student student, Course course, String comment) {
+    this.student = student;
+    this.course = course;
+    this.comment = comment;
+    this.dateTime = new Date();
+  }
+}
